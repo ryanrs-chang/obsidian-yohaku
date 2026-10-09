@@ -1,6 +1,11 @@
 /* Yohaku (余白) — a quiet Obsidian theme built around whitespace and readability. */
 
 body {
+  /* Accent: #6a96c8 (soft blue). Obsidian derives link / accent colors from these. */
+  --accent-h: 212;
+  --accent-s: 46%;
+  --accent-l: 60%;
+
   /* Typography */
   --font-text-theme: "Inter", "PingFang TC", -apple-system, sans-serif;
   --line-height-normal: 1.8;
@@ -19,7 +24,6 @@ body {
   --background-secondary: #f4f2ed;
   --text-normal: #2b2a28;
   --text-muted: #8a8780;
-  --interactive-accent: #6a96c8;
   --divider-color: #e8e5de;
 }
 
@@ -28,7 +32,6 @@ body {
   --background-secondary: #232325;
   --text-normal: #dcdad5;
   --text-muted: #8c8a85;
-  --interactive-accent: #8fb1d8;
   --divider-color: #2e2e31;
 }
 
