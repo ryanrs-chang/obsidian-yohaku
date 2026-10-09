@@ -1,0 +1,40 @@
+/* Yohaku (余白) — a quiet Obsidian theme built around whitespace and readability. */
+
+body {
+  /* Typography */
+  --font-text-theme: "Inter", "PingFang TC", -apple-system, sans-serif;
+  --line-height-normal: 1.8;
+  --p-spacing: 1.25rem;
+  --file-line-width: 42rem;
+
+  /* Headings: lighter weight, more air above */
+  --h1-weight: 600;
+  --h2-weight: 600;
+  --h3-weight: 600;
+  --heading-spacing: 2.5em;
+}
+
+.theme-light {
+  --background-primary: #fbfaf7;
+  --background-secondary: #f4f2ed;
+  --text-normal: #2b2a28;
+  --text-muted: #8a8780;
+  --interactive-accent: #6a96c8;
+  --divider-color: #e8e5de;
+}
+
+.theme-dark {
+  --background-primary: #1c1c1e;
+  --background-secondary: #232325;
+  --text-normal: #dcdad5;
+  --text-muted: #8c8a85;
+  --interactive-accent: #8fb1d8;
+  --divider-color: #2e2e31;
+}
+
+/* More breathing room around the reading column */
+.markdown-preview-view,
+.markdown-source-view.mod-cm6 .cm-scroller {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+}
