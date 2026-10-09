@@ -123,6 +123,23 @@ body {
   --callout-color: var(--yohaku-callout-green);
 }
 
+/* Section embeds inside a callout (e.g. a stand-up block pulling ![[note#摘要]]):
+ * show only the content — no repeated heading, border, or open-link icon */
+.callout .markdown-embed {
+  border-left: none;
+  padding-inline: 0;
+  margin: 0;
+}
+.callout .markdown-embed .markdown-embed-link {
+  display: none;
+}
+.callout .markdown-embed .mod-header + :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) {
+  display: none;
+}
+.callout .markdown-embed .markdown-preview-view {
+  padding: 0;
+}
+
 /* More breathing room around the reading column */
 .markdown-preview-view,
 .markdown-source-view.mod-cm6 .cm-scroller {
