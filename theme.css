@@ -1,5 +1,13 @@
 /* Yohaku (余白) — a quiet Obsidian theme built around whitespace and readability. */
 
+/* PingFang's Latin hyphen is as wide as an en dash (llm–gateway, 2026–10–08).
+ * Borrow only the hyphen glyphs from a Latin system font; everything else stays PingFang. */
+@font-face {
+  font-family: "Yohaku Hyphen";
+  src: local("Helvetica Neue"), local("HelveticaNeue"), local("Arial"), local("Segoe UI");
+  unicode-range: U+002D, U+2010-2011;
+}
+
 body {
   /* Accent: #6a96c8 (soft blue). Obsidian derives link / accent colors from these. */
   --accent-h: 212;
@@ -7,7 +15,7 @@ body {
   --accent-l: 60%;
 
   /* Typography: PingFang for both CJK and Latin so mixed text keeps one size and weight */
-  --font-text-theme: "PingFang TC", "Noto Sans TC", -apple-system, sans-serif;
+  --font-text-theme: "Yohaku Hyphen", "PingFang TC", "Noto Sans TC", -apple-system, sans-serif;
   --line-height-normal: 1.9;
   --p-spacing: 1.1em;
   --file-line-width: 34em; /* ~34 CJK characters per line */
@@ -68,6 +76,51 @@ body {
   padding: 0;
   color: var(--text-accent);
   font-size: 0.86em;
+}
+
+/* Callouts: low-saturation wash, no loud fills */
+.theme-light {
+  --yohaku-callout-blue: 106, 150, 200;
+  --yohaku-callout-amber: 176, 112, 58;
+  --yohaku-callout-red: 178, 92, 84;
+  --yohaku-callout-green: 98, 140, 104;
+}
+.theme-dark {
+  --yohaku-callout-blue: 143, 177, 216;
+  --yohaku-callout-amber: 217, 160, 108;
+  --yohaku-callout-red: 214, 136, 128;
+  --yohaku-callout-green: 140, 182, 146;
+}
+.callout[data-callout] {
+  --callout-color: var(--yohaku-callout-blue);
+  --callout-title-weight: 600;
+  background-color: rgba(var(--callout-color), 0.07);
+  border: none;
+  border-radius: 10px;
+}
+.callout[data-callout] .callout-title {
+  color: rgb(var(--callout-color));
+}
+.callout[data-callout="warning"],
+.callout[data-callout="caution"],
+.callout[data-callout="attention"] {
+  --callout-color: var(--yohaku-callout-amber);
+}
+.callout[data-callout="danger"],
+.callout[data-callout="error"],
+.callout[data-callout="bug"],
+.callout[data-callout="failure"],
+.callout[data-callout="fail"],
+.callout[data-callout="missing"] {
+  --callout-color: var(--yohaku-callout-red);
+}
+.callout[data-callout="success"],
+.callout[data-callout="check"],
+.callout[data-callout="done"],
+.callout[data-callout="tip"],
+.callout[data-callout="hint"],
+.callout[data-callout="important"] {
+  --callout-color: var(--yohaku-callout-green);
 }
 
 /* More breathing room around the reading column */
