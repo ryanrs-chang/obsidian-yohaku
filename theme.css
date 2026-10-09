@@ -6,17 +6,28 @@ body {
   --accent-s: 46%;
   --accent-l: 60%;
 
-  /* Typography */
-  --font-text-theme: "Inter", "PingFang TC", -apple-system, sans-serif;
-  --line-height-normal: 1.8;
-  --p-spacing: 1.25rem;
-  --file-line-width: 42rem;
+  /* Typography: PingFang for both CJK and Latin so mixed text keeps one size and weight */
+  --font-text-theme: "PingFang TC", "Noto Sans TC", -apple-system, sans-serif;
+  --line-height-normal: 1.9;
+  --p-spacing: 1.1em;
+  --file-line-width: 34em; /* ~34 CJK characters per line */
 
-  /* Headings: lighter weight, more air above */
+  /* Headings: small size steps, hierarchy comes from the space above */
+  --inline-title-size: 1.55em;
+  --h1-size: 1.55em;
+  --h2-size: 1.22em;
+  --h3-size: 1.06em;
   --h1-weight: 600;
   --h2-weight: 600;
   --h3-weight: 600;
-  --heading-spacing: 2.5em;
+  --bold-weight: 600;
+  --heading-spacing: 2.4em;
+
+  /* Links: no underline until hover */
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-external-decoration: none;
+  --link-external-decoration-hover: underline;
 }
 
 .theme-light {
@@ -33,6 +44,30 @@ body {
   --text-normal: #dcdad5;
   --text-muted: #8c8a85;
   --divider-color: #2e2e31;
+}
+
+/* Mixed CJK / Latin text: slight tracking, auto spacing between scripts */
+.markdown-rendered,
+.markdown-source-view.mod-cm6 .cm-content {
+  letter-spacing: 0.01em;
+  text-autospace: ideograph-alpha ideograph-numeric;
+}
+
+/* Inline code: no background chip, just mono + accent color */
+.markdown-rendered :not(pre) > code,
+.markdown-source-view.mod-cm6 .cm-inline-code:not(.cm-formatting) {
+  /* Override the variables too, so plugins that style inline code (e.g. Code Styler) follow along */
+  --code-background: transparent;
+  --code-normal: var(--text-accent);
+  --code-styler-inline-background-colour: transparent;
+  --code-styler-inline-colour: var(--text-accent);
+  --code-styler-inline-padding-vertical: 0;
+  --code-styler-inline-padding-horizontal: 0;
+  --code-styler-inline-margin-horizontal: 0;
+  background: none;
+  padding: 0;
+  color: var(--text-accent);
+  font-size: 0.86em;
 }
 
 /* More breathing room around the reading column */
